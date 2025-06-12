@@ -2,9 +2,9 @@ name: Publish to Private Registry
 
 on:
   push:
-     branches:
-       - main
-   workflow_dispatch:      
+    branches:
+      - main
+  workflow_dispatch:  
     inputs:
       dry_run:
         required: true
