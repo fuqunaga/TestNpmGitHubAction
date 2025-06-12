@@ -1,0 +1,28 @@
+name: Publish to Private Registry
+
+on:
+  push:
+     branches:
+       - main
+   workflow_dispatch:      
+    inputs:
+      dry_run:
+        required: true
+        type: boolean     
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Publish package to Private Registry
+        run: npm publish --registry ${{ vars.REGISTRY_URL }}
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}

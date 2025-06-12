@@ -1,0 +1,7 @@
+{
+  "name": "ga.fuquna.test-github-action",
+  "version": "0.0.0",
+  "displayName": "Test GitHub Action Package",
+  "unity": "6000.1",
+  "license": "MIT",
+}
