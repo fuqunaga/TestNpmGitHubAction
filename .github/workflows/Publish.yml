@@ -24,5 +24,6 @@ jobs:
 
       - name: Publish package to Private Registry
         run: npm publish --registry ${{ vars.REGISTRY_URL }}
+        working-directory: './package'
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
