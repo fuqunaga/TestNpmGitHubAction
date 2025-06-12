@@ -21,9 +21,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
+          registry-url:  ${{ vars.REGISTRY_URL }}
 
       - name: Publish package to Private Registry
-        run: npm publish --registry ${{ vars.REGISTRY_URL }}
+        run: npm publish
         working-directory: 'package'
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
